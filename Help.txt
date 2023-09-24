@@ -1,0 +1,73 @@
+                using - Importação de biblioteca
+                system - Base para todos os objetos do .Net            
+                namespace - Divisões lógicas de arquivos
+                class - Arquivos de classe (exemplo: Program.cs)
+
+
+                VARIÁVEL - Armazenamento variável de informação
+                    var idade = 20;    Tipo da variavel var (especificação obrigatória) inicia com 20
+                    var idade;         Erro causado por falta de informação
+                    int idade = 20;    Tipo de variável int (numeros inteiros) inicia com 20
+                    int idade;         Inicia com zero
+
+                CONSTANTE - Armazenamento que não se altera
+                    const int IDADE_MINIMA;         Inicia com ZERO
+                    const int IDADE_MINIMA = 25;    Inicia com 25
+                    const var IDADE_MINIMA = 25;    Erro causado pela interação da variável com a constante
+                    const var IDADE_MINIMA;         Erro
+
+                KEYWORDS - Palavras reservadas que podem ser usadas como variável
+
+                COMENTÁRIOS(AQUI HAHA) 
+                    // Comentário em uma linha
+                    /* Comentário em várias linhas*/
+                    /// Notação XML (Metadata)
+                
+            
+                TIPOS PRIMITIVOS (built-in types) - Armazenam o valor e não a referência para um item na memória
+                    byte - Conjunto de 8 bits. Apenas valores positivos
+                    sbyte - Permite valores negativos
+                    
+                    short/ushort - Valores inteiros pequenos / apenas numeros positivos / 16bits
+                    int/uint - Valores inteiros médios / apenas numeros positivos / 32bits
+                    long/ulong - Valores inteiros grandes / apenas numeros positivo / 64bits
+
+                    float (notação F) - Valores reais pequenos / 32bits
+                    double - Valores reais médios / 64bits
+                    decimal (notação M) - Valores reais grandes / 128bits
+
+                    bool - Armazenas true or false / 8bits
+                    char - Armazena somente um caractere ('') / 16bits
+                    string - Cadeia de caracteres ("")
+                    var - Assume o tipo do primeiro item / atalho pro nome da variável
+                    object - Assume qualquer tipo, para casos de não saber o tipo
+            
+
+
+            
+                TIPOS NULOS (NULLABLE TYPES) - VAZIO/NADA, todo tipo pode receber o valor null e deve ser marcado como nullable type 
+                    Exemplo: int idade; -> int? idade = null; 
+            
+
+------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+               CONVERSÃO IMPLICITA - Só ocorre se os tipos forem compativeis
+                    EXEMPLO: float valor = 25.8f;
+                             int outro = 25;
+                             valor = outro;
+            
+
+               CONVERSÃO EXPLICITA - Ocorre quando dois tipos não são compátiveis
+                    EXEMPLO: int inteiro = 100;
+                             utin inteiroSemSinal = (uint)inteiro;  
+                                            
+            
+            
+                             
+
+
+
+
+
+
+                
