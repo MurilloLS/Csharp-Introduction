@@ -4,27 +4,30 @@
                 class - Arquivos de classe (exemplo: Program.cs)
 
 
-                VARIÁVEL - Armazenamento variável de informação
+                #VARIÁVEL - Armazenamento variável de informação
                     var idade = 20;    Tipo da variavel var (especificação obrigatória) inicia com 20
                     var idade;         Erro causado por falta de informação
                     int idade = 20;    Tipo de variável int (numeros inteiros) inicia com 20
                     int idade;         Inicia com zero
 
-                CONSTANTE - Armazenamento que não se altera
+                #CONSTANTE - Armazenamento que não se altera
                     const int IDADE_MINIMA;         Inicia com ZERO
                     const int IDADE_MINIMA = 25;    Inicia com 25
                     const var IDADE_MINIMA = 25;    Erro causado pela interação da variável com a constante
                     const var IDADE_MINIMA;         Erro
 
-                KEYWORDS - Palavras reservadas que podem ser usadas como variável
+                #KEYWORDS - Palavras reservadas que podem ser usadas como variável
 
-                COMENTÁRIOS(AQUI HAHA) 
+                #COMENTÁRIOS(AQUI HAHA) 
                     // Comentário em uma linha
                     /* Comentário em várias linhas*/
                     /// Notação XML (Metadata)
                 
-            
-                TIPOS PRIMITIVOS (built-in types) - Armazenam o valor e não a referência para um item na memória
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                *TIPOS*
+
+                #TIPOS PRIMITIVOS (built-in types) - Armazenam o valor e não a referência para um item na memória
                     byte - Conjunto de 8 bits. Apenas valores positivos
                     sbyte - Permite valores negativos
                     
@@ -45,21 +48,292 @@
 
 
             
-                TIPOS NULOS (NULLABLE TYPES) - VAZIO/NADA, todo tipo pode receber o valor null e deve ser marcado como nullable type 
+                #TIPOS NULOS (NULLABLE TYPES) - VAZIO/NADA, todo tipo pode receber o valor null e deve ser marcado como nullable type 
                     Exemplo: int idade; -> int? idade = null; 
             
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-               CONVERSÃO IMPLICITA - Só ocorre se os tipos forem compativeis
+                                *CONVERSÕES DE TIPOS*
+
+               #CONVERSÃO IMPLICITA - Só ocorre se os tipos forem compativeis
                     EXEMPLO: float valor = 25.8f;
                              int outro = 25;
                              valor = outro;
             
 
-               CONVERSÃO EXPLICITA - Ocorre quando dois tipos não são compátiveis
-                    EXEMPLO: int inteiro = 100;
-                             utin inteiroSemSinal = (uint)inteiro;  
+               #CONVERSÃO EXPLICITA - Ocorre quando dois tipos não são compátiveis
+                        EXEMPLO: int inteiro = 100;
+                                utin inteiroSemSinal = (uint)inteiro;  
+
+                    PARSE - Presente em todo tipo primitivo, converte um caractere ou uma string para um tipo qualquer
+                        EXEMPLO: int inteiro = int.Parse("100");
+
+                    CONVERT - Converte varios tipos de valor e deve-se informar seu tipo na chamada da CONVERSÃO
+                        EXEMPLO: int inteiro = Convert.ToInt32("100");
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------                        
+
+                                    *OPERADORES*
+
+                #OPERADORES ARITMÉTICOS:
+                 + 
+                 - 
+                 * 
+                 /
+
+                #OPERADORES DE ATRIBUIÇÃO:
+                 x  = 1  (ATRIBUIÇÃO)
+                 x += 1  (x = x + 1)
+                 x -= 1  (x = x - 1)
+                 x *= 1  (x = x * 1)
+                 x /= 1  (x = x / 1)
+
+                #OPERADORES DE COMPARAÇÃO: Sempre retorna com bool
+                 == (igual)
+                 != (diferente)
+                 >  (maior)
+                 <  (menor)
+                 >= (maior ou igual)
+                 <= (menor ou igual)
+
+                #OPERADORES DE INCREMENTO E DECREMENTO
+                 X++ (incrementa um)
+                 X-- (decrementa um)
+
+                #OPERADORES LÓGICOS
+                 && (e-and)
+                 || (ou-or)
+                 ! (negação-not)
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+                 #ESTRUTURAS CONDICIONAIS:
+                   
+                    IF(se) -  Composto por ELSE(senão) e também ELSE IF(senão se)
+
+                            if(condição) {
+
+                            } else if {
+
+                            } else {
+
+                            }
+
+                    SWITCH -  Ideal para casos de muitas decisões, cascata e usamos BREAK para parar a execução
+
+                            int valor = 1;
+                            switch (valor)
+                            {
+                                case 1: Console.WriteLine("1"); break;
+                                case 2: Console.WriteLine("2"); break;
+                                case 3: Console.WriteLine("3"); break;
+                                default: Console.WriteLine("4"); break; // se não for nenhum dos outros casos
+                            }  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                 #LAÇOS DE REPETIÇÃO:
+
+                    FOR(para) - Executa uma determinada ação várias vezes e exige 3 parâmetros: CONTADOR, CONDIÇÃO e INCREMENTO
+
+                            for (var i = 0; i <= 5; i++) 
+                            for ( CONTADOR(atribuição); CONDIÇÃO(condicional); INCREMENTO(aritmética) )
+
+                    WHILE(enquanto) - Exige uma condição e checa a condição ANTES de executar
+
+                            var valor = 0;
+
+                            while (valor <= 5)
+                            {
+                                Console.WriteLine(valor)
+                                valor++;
+                            }
+
+                    DO(faça) - Exife uma condição e checa a condição DEPOIS da execução
+
+                            var valor = 0;
+                            do
+                            {
+                                Console.WriteLine("Teste");
+                                valor++;
+                            } while (valor < 5);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                #MÉTODOS E FUNÇÕES - Segmentam o programa, possui retorno, nome e parâmetros (composição chamada de ASSINATURA)
+
+                            static void Main(string[] args)
+                            {
+                                // Invocação do método
+                                MeuMetodo("C# é legal!");
+                            }
+
+                            // Definição do método
+                            static void MeuMetodo(string parametro)
+                            {
+                                Console.WriteLine(parametro);
+                            }    
+
+                            -----------------------------------------OU
+                            static void Main(string[] args)
+                            {
+                                // Invocação do método
+                                // Armazena o resultado em uma variável
+                                var nome = RetornaNome("André", "José");
+
+                                // Imprime o nome na tela
+                                Console.WriteLine(nome);
+                            }
+
+                            static string RetornaNome(string nome, string sobrenome)   
+                            {
+                                // Retorna o nome e sobrenome
+                                return nome + " " + sobrenome; 
+                            }
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                #VALUE TYPES and REFERENCE TYPES (TIPOS DE ESTRUTURAS E TIPOS DE VALOR)
+
+                            DIVISÃO DA MEMÓRIA:  HEAP - Armazena dados
+                                                 STACK - Armazena as referências para os dados
+
+                            VALUE TYPES:            
+                                        Tipos de valor armazenam dados (heap) e são armazenados em um local 
+                                        da memória chamada STACK. A variável criada acessa esse dado diretamente
+                                        e se houver uma assismilação de uma variável do tipo de valor com outra 
+                                        do tipo de valor, o valor será copiado. Ambas serão independentes.
+
+                                        TIPO VALOR: Built-in, Structs, Enums.
+
+                                            EXEMPLO:
+                                                        int x = 25;
+                                                        int y = x;            // Y é uma cópia de x
+                                                        Console.WriteLine(x); // 25
+                                                        Console.WriteLine(y); // 25
+                                                        x = 32;
+                                                        Console.WriteLine(x); // 32
+                                                        Console.WriteLine(y); // 25
+
+
+                            REFERENCE TYPES:
+                                        Armazenam o endereço dos dados (heap) e não os dados em si.
+                                        Ao assimilar uma variável é criada uma referência. Ambas apontam para a 
+                                        mesma informação e não são independentes. Quando não são mais utilizados, 
+                                        são marcados para a exclusão e removidos pelo GARBAGE COLLECTOR.
+
+                                        TIPO REFERENCIA: Classes, Objects, Arrays.  
+                                        
+                                            EXEMPLO:
+                                                       var arr = new string[2];
+                                                       arr[0] = "Item 1";
+                                                       var arr2 = arr; // Não cria uma cópia
+
+                                                       Console.WriteLine(arr[0]);
+                                                       Console.WriteLine(arr2[0]);
+
+                                                       // Altera as duas listas
+                                                       arr[0] = "Item Alterado";
+                                                       Console.WriteLine(arr[0]); 
+                                                       Console.WriteLine(arr2[0]); 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                #STRUCTS - Tipo de valor e armazena e estrutura os outros dados, e usamos a palavra NEW para criá-lo
+
+                        
+                           Anatomia:
+                                        struct Product
+                                        {
+                                            // Propriedades
+                                            public int Id;
+                                            public float Price;
+
+                                            // Métodos
+                                            public float PriceInDolar(float dolar)
+                                            {
+                                                return Price + dolar;
+                                            }
+                                        }
+
+                           Criar estrutura:
+
+                                        static void Main(string[] args)
+                                        {
+                                            // Cria uma estrutura
+                                            var product = new Product();
+                                            product.Id = 1;
+                                            product.Title = "Mouse Gamer";
+                                            product.Price = 197.23f;
+                                            Console.WriteLine(product.Id);
+                                            Console.WriteLine(product.Title);
+                                            Console.WriteLine(product.Price);
+                                        }            
+
+                            *Método construtor*:
+
+                                        struct Product
+                                        {
+                                            public Product(int id, string title, float price)
+                                            {
+                                                Id = id;
+                                                Title = title;
+                                                Price = price;
+                                            }
+                                        }
+
+                                        var prduct = new Product(1, "Mouse Gamer", 128.75f);
+                                        Console.WriteLine(product.Id);
+                                        Console.WriteLine(product.Title);
+                                        Console.WriteLine(product.Price);
+                                        Console.WriteLine(product.PriceInDolar(5.70f));
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+STRUCTS ->            using System;
+
+                      namespace MeuApp
+                      {
+                        class Program
+                        {
+                            static void Main(string[] args)
+                            {
+                                Product mouse = new Product(1, "Mouse gamer", 299.97);
+
+                                Console.WriteLine(mouse.Id);
+                                Console.WriteLine(mouse.Name);
+                                Console.WriteLine(mouse.Price);
+                            }
+                        }
+
+                        struct Product 
+                        {
+                            public Product(int id, string name, double price)
+                            {
+                                Id = id;
+                                Name = name;
+                                Price = price;
+                            }
+
+                            public int Id;
+                            public string Name;
+                            public double Price;
+
+                            public double PriceInDolar(double dolar) {
+                                return Price * dolar;
+                            }
+                        }
+
+                      }
+
+
+
+                                              
+
+                           
+
+
+                                 
                                             
             
             
