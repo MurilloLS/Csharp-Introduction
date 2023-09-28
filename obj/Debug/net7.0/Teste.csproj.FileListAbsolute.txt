@@ -19,3 +19,10 @@ C:\dev\csharp\obj\Debug\net7.0\Teste.csproj.CoreCompileInputs.cache
 C:\dev\csharp\obj\Debug\net7.0\Teste.dll
 C:\dev\csharp\obj\Debug\net7.0\refint\Teste.dll
 C:\dev\csharp\obj\Debug\net7.0\Teste.pdb
+C:\dev\csharp\bin\Debug\net7.0\Teste.exe
+C:\dev\csharp\bin\Debug\net7.0\Teste.deps.json
+C:\dev\csharp\bin\Debug\net7.0\Teste.runtimeconfig.json
+C:\dev\csharp\bin\Debug\net7.0\Teste.dll
+C:\dev\csharp\bin\Debug\net7.0\Teste.pdb
+C:\dev\csharp\obj\Debug\net7.0\Teste.genruntimeconfig.cache
+C:\dev\csharp\obj\Debug\net7.0\ref\Teste.dll

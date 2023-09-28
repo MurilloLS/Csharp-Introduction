@@ -326,6 +326,121 @@ STRUCTS ->            using System;
 
                       }
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                    STRINGS
+                             
+                             #GUID - Quando precisamos gerar um número random
+                                    var id = Guid.NewGuid();
+                                    id.ToString();
+                                    id = new Guid("a12b81f1-719c-4929-8e14-2908875700e9");
+                                    Console.WriteLine(id);
+
+
+
+                             #Interpolação de strings 
+                                     var price = 10.2;
+                                     var texto = "O preço do produto é " + price + " apenas na promoção"; //concatenação
+                                     var texto = string.Format("O preço do produto é {0} apenas na promoção {1}", price, true); //outro exemplo com string.format
+                                     var texto = $"O preço do produto é {price} apenas na promoção"; //mais um exemplo com cifrão
+                                        
+                                     var texto = $@"O preço do produto 
+                                                 é {price} apenas na promoção"; // @ reconhece uma quebra de linha como parte do teto
+
+                                     var texto = $"O preço do produto é {price} \n apenas na promoção"; // \n quebra a linha
+                                     Console.WriteLine(texto); 
+
+
+
+                             #Comparação de texo
+                                     var texto = "Testando";
+                                     Console.WriteLine(texto.CompareTo("Testando")); //compara o conteudo da variável com o indicado
+                                     Console.WriteLine(texto.CompareTo("testando")); //faz o mesmo, mas maiusculo e minusculo são tidos como diferentes por causa do case sensitive
+                                     Console.WriteLine(texto.Contains("ando")); //verifica se o conteudo da variável contém o que foi indicado
+                                     Console.WriteLine(texto.Contains("ando",StringComparison.CurrentCultureIgnoreCase)); //ignora o case sensitive
+                                     Console.WriteLine(texto.Contains(null)); //só retorna se o conteudo dor uma string ou um char      
+
+
+
+                             #StartsWith / EndsWith - Compara e retorna boolean
+
+                                    var texto = "Este texto é um teste";
+                                    Console.WriteLine(texto.StartsWith("Este")); // StartsWith - compara o começo
+                                    Console.WriteLine(texto.StartsWith("este")); // também é case sensitive
+                                    Console.WriteLine(texto.StartsWith(" Este", StringComparison.CurrentCultureIgnoreCase)); //tambem podemos retirar o case sensitive
+
+                                    Console.WriteLine(texto.EndsWith("teste")); // EndsWith - compara o final //também é case sensitive
+                                    Console.WriteLine(texto.EndsWith("Teste", StringComparison.CurrentCultureIgnoreCase)); //tambem podemos retirar o case sensitive 
+                                    Console.WriteLine(texto.EndsWith("xpro"));
+
+                             
+                             #Equals
+
+                                    var texto = "Este texto é um teste";
+                                    var teste = 33;
+                                    Console.WriteLine(texto.Equals("Este texto é um teste")); //compara tudo e é case sensitive
+                                    Console.WriteLine(texto.Equals("este texto é um teste", StringComparison.CurrentCultureIgnoreCase)); //para eliminar o case sensitive
+                                    Console.WriteLine(teste.Equals(33)); //também compara outros tipos alem de string e char        
+
+
+                             #Indice - Posição de um item de um array ou lista (que sempre começam com zero)
+         
+                                    var texto = "Este texto é um teste";
+                                    Console.WriteLine(texto.IndexOf("é")); //nesse caso é 11
+                                    Console.WriteLine(texto.LastIndexOf("e")); //para a ultima vez que aparece, nesse caso é 20
+
+
+                             #Metodos ADICIONAIS
+
+                                    var texto = "Este texto é um teste";
+                                    Console.WriteLine(texto.ToLower()); //deixa o texto em MINUSCULO
+                                    Console.WriteLine(texto.ToUpper()); //deixa o texto em MAIUSCULO
+                                    Console.WriteLine(texto.Insert(5, "AQUI ")); //ADICIONA caractere no texto, necessita de um indice(posição) "," o que deseja inserir
+                                    Console.WriteLine(texto.Remove(5,5)); //REMOVE parte do texto, necessita do indice do começo e do fim para eliminar
+                                    Console.WriteLine(texto.Length); // mostra a QUANTIDADE de caracteres que a variavel possui  
+
+
+                             #Manipulação de strings
+
+                                    var texto = "Este texto é um teste";
+                                    Console.WriteLine(texto.Replace("e", "x")); // Troca um por outro, respectivamente. É case sensitive
+                                    
+                                    -------------------------------------------------------------------
+
+                                    var divisao = texto.Split(" "); // Dividir o texto por algum caractere
+                                    Console.WriteLine(divisao[0]); // este
+                                    Console.WriteLine(divisao[1]); // texto
+                                    Console.WriteLine(divisao[2]); // é
+                                    Console.WriteLine(divisao[3]); // um
+
+                                    --------------------------------------------------------------------
+
+                                    var resultado = texto.Substring(5,5); //pega a parte selecionada de acordo com o indice 
+                                    var resultado = texto.Substring(5,texto.LastIndexOf("0")); // tambem podemos usar o LastIndexOf para selecionar um caractere
+                                    Console.WriteLine(resultado);
+
+                                    --------------------------------------------------------------------
+
+                                    Console.WriteLine(texto.Trim()); //remove os espaços do começo e do fim, para casos como quando o usuario digitar um email                                  
+
+
+
+
+                                                        
+                             #StringBuilder - Cria linhas de forma dinamica. necessário add using System.Text;
+
+                                    var texto = new StringBuilder();
+                                    texto.Append("Este texto é um teste");
+                                    texto.Append(" gagfsgsfgasggfgggG ");
+                                    texto.Append(" texto é um teste");
+                                    texto.Append(" teste GFSGSFGSAG FGSGSG");
+                                    texto.ToString(); // StringBuilder não é uma string, então convertemos para uma string usando "ToString"
+                                    Console.WriteLine(texto);
+                             
+                             
+
+
+
 
 
                                               
