@@ -149,7 +149,7 @@
                                 valor++;
                             }
 
-                    DO(faça) - Exife uma condição e checa a condição DEPOIS da execução
+                    DO(faça) - Exige uma condição e checa a condição DEPOIS da execução
 
                             var valor = 0;
                             do
