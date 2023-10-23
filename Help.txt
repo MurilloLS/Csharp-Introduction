@@ -436,7 +436,318 @@ STRUCTS ->            using System;
                                     texto.Append(" teste GFSGSFGSAG FGSGSG");
                                     texto.ToString(); // StringBuilder não é uma string, então convertemos para uma string usando "ToString"
                                     Console.WriteLine(texto);
-                             
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                             DATAS
+
+                            #DateTime - var data = DateTime.Now;                             //Indica a data e a hora atuais
+                                        var data = new DateTime(2020, 10, 12, 8, 23, 14);    //Valores padrões: 0001/01/01 00:00:00
+                                        Console.WriteLine(data);
+
+                                        Console.WriteLine(data.Year);                        //Também podemos obter os valores separados
+                                        Console.WriteLine(data.Month);
+                                        Console.WriteLine(data.Day);
+                                        Console.WriteLine(data.Hour);
+                                        Console.WriteLine(data.Minute);
+                                        Console.WriteLine(data.Second);
+
+                                        var data = DateTime.Now;
+                                        var formatada = String.Format("{0:yyyy-MM-dd hh:mm:ss z}", data);     //Formata a variavel e aponta o valor desejado 
+                                                                                                              //de acordo com a letra inicial da data desejada
+                                                                                                              // z == timezone
+
+                                        var formatada = String.Format("{0:t}", data); // short time (ex: 1:18 PM) e se "T" exibe o tempo mais completo
+                                        var formatada = String.Format("{0:d}", data); // short date (ex: 7/8/2020) e se "D" exibe a data mais completo
+                                        var formatada = String.Format("{0:f}", data); // combina data e hora completa
+                                        var formatada = String.Format("{0:g}", data); // combina data e hora em short
+                                        var formatada = String.Format("{0:r}", data); // formata com o medelo padrão
+                                        var formatada = String.Format("{0:s}", data); // formata em outro padrão, como o usado no Json ou o banco de dados MongoDB 
+                                        var formatada = String.Format("{0:u}", data); // padrão universal
+
+
+                                        ALTERAR:
+
+                                                    var data = DateTime.Now;
+                                                    Console.WriteLine(data);
+                                                    Console.WriteLine(AddDays(12)); //dias
+                                                    Console.WriteLine(data.AddMonths(1)); //meses
+                                                    Console.WriteLine(data.AddYears(1));  //anos
+
+                                                    //o mesmo com valores de time
+                                                    //para subtrair, basta colocar "-" no valor desejado (ex: Console.WriteLine(data.AddYears(-1)); )
+                                        
+
+
+
+
+                                            
+
+
+                            #GLOBALIZAÇÃO/ TIMEZONE -              
+                                            var pt = new CultureInfo("pt-BR");      //cultura regional
+                                            var en = new CultureInfo("pt-US"); 
+
+                                            var atual = CultureInfo.CurrentCulture      //cultura da maquina do usuario
+                                            Console.WriteLine(DateTime.Now.ToString("D", atual)) 
+
+                                            var utcdateTime = DateTime.UtcNow;  //pega o horario base, sem o time zone
+                                            Console.WriteLine(utcdateTime.ToLocalTime()); //retorna o horario do servidor
+
+
+                                            var timezoneAustralia = TimeZoneInfo.FindSystemTimeZoneById("Pacific/Auckland");
+                                            Console.WriteLine(timezoneAustralia);  //pega o time zone da Australia
+
+                                            var horaAustralia = TimeZoneInfo.ConvertTimeFromUtc(utcdateTime, timezoneAustralia); 
+                                            Console.WriteLine(horaAustralia); //cria uma nova variavel de data e aplica o time zone da australia
+
+
+
+                            #TIMESPAN - Unidade de medida para data e hora universal
+
+                                            var timeSpan = new TimeSpan(); //sempre inicia com 00:00:00
+                                            Console.WriteLine(timeSpan);
+
+                                            var timeSpanNanoSegundos = new TimeSpan(1); //00:00:00.0000001
+                                            Console.WriteLine(timeSpan); 
+
+                                            var timeSpanHoraMinutoSegundo = new TimeSpan(5, 12, 8); //05:12:08
+                                            Console.WriteLine(timeSpanHoraMinutoSegundo);
+
+                                            var timeSpanDiaHoraMinutoSegundo = new TimeSpan(3, 5, 50, 10); //3.05:50:10
+                                            Console.WriteLine(timeSpanDiaHoraMinutoSegundo);
+
+                                            var timeSpanDiaHoraMinutoSegundoMilissegundo = new TimeSpan(15, 12, 55, 8, 100); //15.12:55:08.1000000
+                                            Console.WriteLine(timeSpanDiaHoraMinutoSegundoMilissegundo);
+
+                                            
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                    MOEDAS
+
+                             decimal valor = 10.25m;   //decimal: Mais indicado para tratar moedas
+                             Console.WriteLine(valor);            
+
+
+                             decimal valor = 10000.25m;
+                             Console.WriteLine(valor.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR"))); //R$ 10.000,25
+                             Console.WriteLine(valor.ToString("E04", CultureInfo.CreateSpecificCulture("pt-BR"))); //1,0000E+004
+                             Console.WriteLine(valor.ToString("G", CultureInfo.CreateSpecificCulture("pt-BR"))); //10000,25
+                             Console.WriteLine(valor.ToString("F", CultureInfo.CreateSpecificCulture("pt-BR"))); //10000,25
+                             Console.WriteLine(valor.ToString("N", CultureInfo.CreateSpecificCulture("pt-BR"))); //10.000,25
+                             Console.WriteLine(valor.ToString("P", CultureInfo.CreateSpecificCulture("pt-BR"))); //1.000.025,00%   
+
+
+                             decimal valor = 998.5m;
+                             Console.WriteLine(Math.Round(valor)); //998
+                             Console.WriteLine(Math.Ceiling(valor)); //999
+                             Console.WriteLine(Math.Floor(valor)); //998 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                    Arrays
+
+                             Console.Clear();
+
+                             var meuArray = new int[5];
+                             meuArray[0] = 12;
+                             Console.WriteLine(meuArray[0]); //12
+
+
+                             var meuSegundoArray = new int[5]{1, 2, 3, 4, 5};
+                             Console.WriteLine(meuSegundoArray[0]); //1
+                             Console.WriteLine(meuSegundoArray[1]); //2
+                             Console.WriteLine(meuSegundoArray[2]); //3
+                             Console.WriteLine(meuSegundoArray[3]); //4
+                             Console.WriteLine(meuSegundoArray[4]); //5  
+
+
+                             var meuArray = new int[5]{1, 2, 3, 4, 5};
+                             for(var index = 0; index < meuArray.Length; index++)
+                             {
+                                    Console.WriteLine(meuArray[index]);
+                                    /* 
+                                        1
+                                        2
+                                        3
+                                        4
+                                        5
+                                    */    
+                             }    
+
+
+                              var meuArray = new int[5]{1, 2, 3, 4, 5};
+                              foreach(var item in meuArray)
+                              {
+                                    Console.WriteLine(item);
+                                    /*
+                                        1
+                                        2
+                                        3
+                                        4
+                                        5
+                                    */ 
+                              }  
+
+
+
+
+
+                              var arrayA = new int[5];
+                              var arrayB = arrayA;
+                              arrayB[0] = 23;
+                              Console.WriteLine(arrayA[0]); //23               
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                    EXCEPTIONS
+
+                    Try/catch -
+
+                                var arr = new int[3];
+
+                                try
+                                {
+                                        for(var index = 0; index < 10; index++)
+                                        {
+                                            //System.IndexOutOfRangeException
+                                            Console.WriteLine(arr[index]);
+                                        }
+                                }
+                                catch(Exception ex) //tratamento de erro
+                                {
+                                        Console.WriteLine(ex.InnerException); 
+                                        Console.WriteLine(ex.Message); // dois ex mais usados
+                                        Console.WriteLine("Ops,algo deu errado!");
+                                }  
+                                finally
+                                {
+                                        Console.WriteLine("Chegou ao fim!");
+                                }      
+
+
+
+
+                    Try/catch mais completo - 
+                    
+
+                            static void Main(string[] args)
+                            {
+                                var arr = new int[3];
+
+                                try
+                                {
+                                        for(var index = 0; index < 10; index++)
+                                        {
+                                            //IndexOutOfRangeException
+                                            Console.WriteLine(arr[index]);
+                                        }
+                                        cadastrar("");
+                                }
+                                catch(IndexOutOfRangeException ex)
+                                {
+                                        Console.WriteLine(ex.InnerException); 
+                                        Console.WriteLine(ex.Message); // dois ex mais usados
+                                        Console.WriteLine("Não encontrei o índice na lista");
+                                }
+                                catch(ArgumentNullException ex)
+                                {
+                                        Console.WriteLine(ex.InnerException); 
+                                        Console.WriteLine(ex.Message); // dois ex mais usados
+                                        Console.WriteLine("Falha ao cadastrar o texto");
+                                }
+                                catch(Exception ex) //tratamento de erro
+                                {
+                                        Console.WriteLine(ex.InnerException); 
+                                        Console.WriteLine(ex.Message); // dois ex mais usados
+                                        Console.WriteLine("Ops, algo deu errado!");
+                                } 
+                                finally
+                                {
+                                        Console.WriteLine("Chegou ao fim!");
+                                }   
+                            }
+
+                                private static void cadastrar(string texto)
+                                {
+                                    if(string.IsNullOrEmpty(texto))
+                                        throw new Exception("O texto não pode ser nulo ou vazio");
+                                }                      
+
+
+
+                    Try/catch com classe - 
+
+
+                                class Program
+                                {
+                                    static void Main(string[] args)
+                                    {
+                                        var arr = new int[3];
+
+                                        try
+                                        {
+                                                for(var index = 0; index < 10; index++)
+                                                {
+                                                    //IndexOutOfRangeException
+                                                    Console.WriteLine(arr[index]);
+                                                }
+                                                cadastrar("");
+                                        }
+                                        catch(IndexOutOfRangeException ex)
+                                        {
+                                                Console.WriteLine(ex.InnerException); 
+                                                Console.WriteLine(ex.Message); // dois ex mais usados
+                                                Console.WriteLine("Não encontrei o índice na lista");
+                                        }
+                                        catch(ArgumentNullException ex)
+                                        {
+                                                Console.WriteLine(ex.InnerException); 
+                                                Console.WriteLine(ex.Message); // dois ex mais usados
+                                                Console.WriteLine("Falha ao cadastrar o texto");
+                                        }
+                                            catch(MinhaException ex)
+                                        {
+                                                Console.WriteLine(ex.InnerException); 
+                                                Console.WriteLine(ex.Message); // dois ex mais usados
+                                                Console.WriteLine(ex.QuandoAconteceu);
+                                                Console.WriteLine("Exceção customizada");
+                                        }
+                                        catch(Exception ex) //tratamento de erro
+                                        {
+                                                Console.WriteLine(ex.InnerException); 
+                                                Console.WriteLine(ex.Message); // dois ex mais usados
+                                                Console.WriteLine("Ops, algo deu errado!");
+                                        }    
+                                        finally
+                                        {
+                                                Console.WriteLine("Chegou ao fim!");
+                                        }    
+                                    }
+
+                                    private static void cadastrar(string texto)
+                                    {
+                                        if(string.IsNullOrEmpty(texto))
+                                            throw new MinhaException(DateTime.Now);
+                                    }
+
+                                    public class MinhaException : Exception
+                                    {
+                                        public MinhaException(DateTime date)
+                                        {
+                                            QuandoAconteceu = date;
+                                        }
+                                        public DateTime QuandoAconteceu { get; set; }
+                                    }
+                                }
+
+
+
+
+
+
+
+
+
+                                                           
+
                              
 
 

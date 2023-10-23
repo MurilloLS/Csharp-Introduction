@@ -26,3 +26,17 @@ C:\dev\csharp\bin\Debug\net7.0\Teste.dll
 C:\dev\csharp\bin\Debug\net7.0\Teste.pdb
 C:\dev\csharp\obj\Debug\net7.0\Teste.genruntimeconfig.cache
 C:\dev\csharp\obj\Debug\net7.0\ref\Teste.dll
+C:\dev\C#\csharp\bin\Debug\net7.0\Teste.exe
+C:\dev\C#\csharp\bin\Debug\net7.0\Teste.deps.json
+C:\dev\C#\csharp\bin\Debug\net7.0\Teste.runtimeconfig.json
+C:\dev\C#\csharp\bin\Debug\net7.0\Teste.dll
+C:\dev\C#\csharp\bin\Debug\net7.0\Teste.pdb
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.AssemblyInfoInputs.cache
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.AssemblyInfo.cs
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.csproj.CoreCompileInputs.cache
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.dll
+C:\dev\C#\csharp\obj\Debug\net7.0\refint\Teste.dll
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.pdb
+C:\dev\C#\csharp\obj\Debug\net7.0\Teste.genruntimeconfig.cache
+C:\dev\C#\csharp\obj\Debug\net7.0\ref\Teste.dll

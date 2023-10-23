@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design.Serialization;
+using System.Globalization;
 using System.Text;
 
 namespace csharp
@@ -9,7 +11,7 @@ namespace csharp
     {
         static void Main(string[] args)
         {
-           Console.WriteLine("HI!");
+            Console.WriteLine("Olá, aqui está o resumo dos fundamentos do C#. Vocêpode encontrá-lo no arquivo 'Help.txt'");
         }
     }
-}
+}    
